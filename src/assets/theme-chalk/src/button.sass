@@ -1,0 +1,57 @@
+@import './mixin.sass'
+@import '../var.scss'
+
+@include Struct(button)
+    outline: none
+    border: 1px solid #dcdfe6
+    background-color: #fff
+    padding: 8px 15px
+    font-size: 14px
+    font-weight: 500
+    border-radius: 4px
+    cursor: pointer
+
+    -moz-user-select: none
+    -webkit-user-select: none
+    -ms-user-select: none
+
+    & + &
+        margin-left: 10px
+
+    &:hover,
+    &:active
+        background-color: #ecf5ff
+        border-color: #c6e6ff
+        color: #{$--color-primary}
+
+    @include m(primary)
+        @include button-sheet($--color-primary, $--color-primary-hover )
+
+    @include m(success)
+        @include button-sheet($--color-success, $--color-success-hover )
+
+    @include m(info)
+        @include button-sheet($--color-info, $--color-info-hover )
+
+    @include m(warning)
+        @include button-sheet($--color-warning, $--color-warning-hover )
+
+    @include m(danger)
+        @include button-sheet($--color-danger, $--color-danger-hover )
+
+    // 圆角按钮
+    @include when(round)
+        border-radius: 18px
+        padding-left: 16px
+        padding-right: 16px
+
+    @include when(circle)
+        line-height: 1
+        padding: 12px
+        border-radius: 50%
+
+    @include when(disabled)
+        cursor: not-allowed
+        opacity: 0.6
+        &:hover
+            transition: 99s

@@ -1,0 +1,33 @@
+@import './mixin'
+
+@include Struct(row)
+    @include clearFloat()
+
+    margin-bottom: 10px
+
+    @include m(flex)
+        display: flex
+        &::after,
+        &::before
+            display: none
+
+    &.is-justify-center
+        justify-content: center
+
+    &.is-justify-end
+        justify-content: end
+
+    &.is-justify-space-around
+        justify-content: space-around
+
+    &.is-justify-space-between
+        justify-content: space-between
+
+    &.is-align-top
+        vertical-align: top
+
+    &.is-align-bottom
+        vertical-align: bottom
+
+    &.is-align-middle
+        vertical-align: middle

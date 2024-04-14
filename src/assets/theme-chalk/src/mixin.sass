@@ -1,0 +1,51 @@
+@import '../var.scss'
+
+@mixin Struct($node)
+    $root: $namespace + $node
+    @at-root
+        #{$root}
+            @content
+
+@mixin clearFloat()
+    $selector: &
+    @at-root
+        #{$selector}::after,
+        #{$selector}::before
+            display: block
+            content: ""
+
+        #{$selector}::after
+            clear: both
+
+@mixin m($modifier)
+    @at-root
+        &--#{$modifier}
+            @content
+
+@mixin when($cond)
+    &.is-#{$cond}
+        @content
+
+@mixin res($key, $map: $--breakpoints)
+    @if map-has-key($map, $key)
+        @media only screen and #{inspect(map-get($map, $key))}
+            @content
+    @else
+        @warn "#{$key} is not a key of #{$map}"
+
+@mixin button-sheet($bgColor, $hoverColor)
+    background-color: #{$bgColor}
+    border-color: #{$bgColor}
+    color: #fff
+
+    &:hover
+        background-color: #{$hoverColor}
+        border-color: #{$hoverColor}
+        color: #fff
+
+    @include when(plain)
+        background-color: mix($bgColor, #fff, 20%)
+        color: #{$bgColor}
+        &:hover
+            background-color: #{$bgColor}
+            color: #fff

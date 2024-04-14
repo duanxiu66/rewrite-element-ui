@@ -1,0 +1,25 @@
+@import './mixin.sass'
+
+@include Struct(container)
+    display: flex
+    flex-direction: row
+
+    @include when(vertical)
+        flex-direction: column
+
+@include Struct(header)
+    box-sizing: border-box
+    padding: 0 20px
+    flex-shrink: 0
+
+@include Struct(main)
+    box-sizing: border-box
+    display: block
+    overflow: hidden
+    padding: 0 20px
+    flex: 1 1 0
+
+@include Struct(footer)
+    box-sizing: border-box
+    padding: 0 20px
+    flex-shrink: 0

@@ -1,0 +1,8 @@
+@import './mixin.sass'
+@import '../var.scss'
+
+.hidden
+    @each $break-point-name, $value in $--breakpoints-spec
+        &-#{$break-point-name}
+            @include res($break-point-name, $--breakpoints-spec)
+                display: none !important

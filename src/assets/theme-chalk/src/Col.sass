@@ -1,0 +1,91 @@
+@import './mixin.sass'
+@import '../var.scss'
+
+@include Struct(col)
+
+    float: left
+    box-sizing: border-box
+    background-color: red
+    background-clip: content-box
+
+@for $i from 1 through 24
+    .el-col-#{$i}
+        width: calc($i / 24) * 100%
+
+    .el-col-offset-#{$i}
+        margin-left: calc($i / 24) * 100%
+
+    .el-col-push-#{$i}
+        position: relative
+        left: calc($i / 24) * 100%
+
+    .el-col-pull-#{$i}
+        position: relative
+        right: calc($i / 24) * 100%
+
+// xs < 768px
+@include res(xs)
+    @for $i from 1 through 24
+        .el-col-xs-#{$i}
+            width: calc($i / 24) * 100%
+
+        .el-col-xs-offset-#{$i}
+            margin-left: calc($i / 24) * 100%
+
+        .el-col-xs-push-#{$i}
+            position: relative
+            left: calc($i / 24) * 100%
+
+        .el-col-xs-pull-#{$i}
+            position: relative
+            right: calc($i / 24) * 100%
+
+// sm >= 768px
+@include res(sm)
+    @for $i from 1 through 24
+        .el-col-sm-#{$i}
+            width: calc($i / 24) * 100%
+
+        .el-col-sm-offset-#{$i}
+            margin-left: calc($i / 24) * 100%
+
+        .el-col-sm-push-#{$i}
+            position: relative
+            left: calc($i / 24) * 100%
+
+        .el-col-sm-pull-#{$i}
+            position: relative
+            right: calc($i / 24) * 100%
+
+@include res(lg)
+    @for $i from 1 through 24
+        .el-col-lg-#{$i}
+            width: calc($i / 24) * 100%
+
+        .el-col-lg-offset-#{$i}
+            margin-left: calc($i / 24) * 100%
+
+        .el-col-lg-push-#{$i}
+            position: relative
+            left: calc($i / 24) * 100%
+
+        .el-col-lg-pull-#{$i}
+            position: relative
+            right: calc($i / 24) * 100%
+
+// xl >= 1920px
+@include res(xl)
+    @for $i from 1 through 24
+        .el-col-xl-#{$i}
+            width: calc($i / 24) * 100%
+
+        .el-col-xl-offset-#{$i}
+            margin-left: calc($i / 24) * 100%
+
+        .el-col-xl-push-#{$i}
+            position: relative
+            left: calc($i / 24) * 100%
+
+        .el-col-xl-pull-#{$i}
+            position: relative
+            right: calc($i / 24) * 100%
